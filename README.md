@@ -48,10 +48,10 @@ PHP simple validation Library.
 - **value(&$value)**: sets the value by reference to be validate or filtered
 - **file($file)**: sets the File element to be validate or filtered. the value is one elemet of array $\_FILES
 - **reset()**: reset errors, is useful after some validations like:  $valid->name("productId")->required()->isSuccess() and you need re evaluate
-- **errorMessage($message="",$function="")**: function were all errors are set, also you can add a new error
+- **errorMessage($message="",$function="")**: function were all errors are created, also you can add a new error
 - **isSuccess()**: Determines after validate all fields if has no errors
-- **getErrors()**: eturn all errors array or false if no errors
-- **displayErrors()**: return all errors in html list
+- **getErrors()**: Return all errors array or false if no errors
+- **displayErrors()**: Return all errors in html list
 - **printErrors()**: echo list of errors
 
 
@@ -105,7 +105,7 @@ PHP simple validation Library.
 - **cleanFloat()**: Filter/Sanitize the string by removing illegal characters from float numbers
 - **basicTags()**: Filter/Strip HTML and PHP tags except the defined basic tags in array "$basicTags"
 - **convertTo($type)**: cast/converts the string value to int, float or bool. in the case of bool casting uses the array $boolCastingList to determine the value
-- **Format a number with grouped thousands**: numberFormat($decimals = 0,$dec_point = ".",$thousands_sep = ",")
+- **numberFormat($decimals = 0,$dec_point = ".",$thousands_sep = ",")**: Format a number with grouped thousands
 - **replaceMsWord()**: Convert MS Word special characters to web safe characters. [“, ”, ‘, ’, –, …] => [", ", ', ', -, ...]
 - **urlWebSlug()**: converts a string text in a url slug, for example, the title of some article can be escaped for add it in to URL. eg. text: "Title tag optimization guide" becomes: title-tag-optimization-guide and you can use like: www.some.com/title-tag-optimization-guide/
 - **cleanNoiseWords($text,$sortByAppearances = true)**: Return filtered string value cleaning/deleting all words found in the array $es_noiseWords
@@ -119,7 +119,7 @@ PHP simple validation Library.
 - **is_alphanum($value)**: Check if the $value only contanis alphabetic chars including numbers. shorcut to 'patternCheck("alphanum",$value)'
 - **is_url($value)**: Check if the $value well formatted URL (Uniform Resource Locator)
 - **is_bool($value)**: Check if the $value is bool, including tel values in array "$boolCastingList"
-- **is_email($value)**: Check if the $value well formatted email address
+- **is_email($value)**: Check if the $value is well formatted email address
 
 
 
@@ -146,7 +146,7 @@ $_POST = ["age"=>"a"];
 $valid->name("my age ")->value($_POST["age"])->pattern("int"); // simple validation
 
 var_dump($valid->isSuccess()); //in this case return false
-var_dump($valid->getErrors()); // return false array of errors
+var_dump($valid->getErrors()); // return array of errors
 
 
 bool(true)
@@ -159,7 +159,7 @@ array(1) {
 
 ### Setting the name of field
 
-the method "name" is used for set the name of the field shown in error messages, but it is the "key" of array of data ir $\_FILES also sets the actual value to validate or firter.
+the method "name" is used for set the name of the field shown in error messages, but it is the "key" of array of data or $\_FILES also sets the actual value to validate or firter.
 e.g.
 
 ##### using the name as key
@@ -328,7 +328,7 @@ or
 $valid->data($_POST,true);
 ```
 
-if you onli want to clean single value you can use:
+if you only want to clean single value you can use:
 
 ```
 $valid->name("personAddress")->xssClean();
