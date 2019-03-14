@@ -2314,7 +2314,7 @@ $_POST = ["age"=>"a"];
 $valid->name("my age ")->value($_POST["age"])->pattern("int"); // simple validation
 
 var_dump($valid->isSuccess()); //in this case return false
-var_dump($valid->getErrors()); // return false array of errors
+var_dump($valid->getErrors()); // return array of errors
 
 
 bool(true)
@@ -2327,7 +2327,7 @@ array(1) {
 ----------------------------------------------------------------------------------------
 Setting the name of field
 
-the method "name" is used for set the name of the field shown in error messages, but it is the "key" of array of data ir $_FILES also sets the actual value to validate or firter.
+the method "name" is used for set the name of the field shown in error messages, but it is the "key" of array of data or $_FILES also sets the actual value to validate or firter.
 e.g.
 
 
@@ -2503,7 +2503,7 @@ or
 
 $valid->data($_POST,true);
 
-if you onli want to clean single value you can use:
+if you only want to clean single value you can use:
 
 $valid->name("personAddress")->xssClean();
 
