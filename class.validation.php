@@ -52,7 +52,7 @@
             'address'       => '[\p{L}0-9\s.,()°-]+',
             'date_dmy'      => '[0-9]{1,2}\-[0-9]{1,2}\-[0-9]{4}',
             'date_ymd'      => '[0-9]{4}\-[0-9]{1,2}\-[0-9]{1,2}',
-            'email'         => '[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+[.]+[a-z-A-Z]'
+            'email'         => '[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+.[a-zA-Z]{2,4}'
         );
 		
 		//definition of upload files error in PHP
